@@ -29,6 +29,7 @@ class UserData {
         cities.append(city)
         let cityData = NSKeyedArchiver.archivedData(withRootObject: cities)
         UserDefaults.standard.set(cityData, forKey: citiesKey)
+        UserDefaults.standard.synchronize()
     }
 
     private init() {}

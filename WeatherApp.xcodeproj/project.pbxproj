@@ -18,6 +18,7 @@
 		C63851852396690900F6B539 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63851842396690900F6B539 /* UserData.swift */; };
 		C63851872396970600F6B539 /* KFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63851862396970600F6B539 /* KFViewController.swift */; };
 		C6385189239699E800F6B539 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6385188239699E800F6B539 /* MapViewController.swift */; };
+		C672B3E42396A7F1002672CB /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C672B3E32396A7F1002672CB /* WeatherService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C63851842396690900F6B539 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		C63851862396970600F6B539 /* KFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KFViewController.swift; sourceTree = "<group>"; };
 		C6385188239699E800F6B539 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C672B3E32396A7F1002672CB /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				C63851842396690900F6B539 /* UserData.swift */,
+				C672B3E32396A7F1002672CB /* WeatherService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C672B3E42396A7F1002672CB /* WeatherService.swift in Sources */,
 				C638516F2396606200F6B539 /* ViewController.swift in Sources */,
 				C63851872396970600F6B539 /* KFViewController.swift in Sources */,
 				C638516B2396606200F6B539 /* AppDelegate.swift in Sources */,

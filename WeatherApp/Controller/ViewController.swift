@@ -21,7 +21,16 @@ class ViewController: KFViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let _ = UserData.shared.cities
+        // Take the last city
+        if let city = UserData.shared.cities.last {
+            WeatherService.shared.getForecasts(for: city.latitude, and: city.longitude) { (weather, gotError) in
+                if gotError {
+                    let _ = weather
+                } else {
+                    let _ = weather
+                }
+            }
+        }
     }
     
     func presentMapVC() {
