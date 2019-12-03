@@ -23,6 +23,8 @@ class Location: NSObject, NSCoding {
         coder.encode(longitude, forKey: longitudeKey)
     }
     
+    override init() {}
+    
     required init?(coder aDecoder: NSCoder) {
         guard let latitude = aDecoder.decodeObject(forKey: latitudeKey) as? Double,
             let longitude = aDecoder.decodeObject(forKey: longitudeKey) as? Double else {

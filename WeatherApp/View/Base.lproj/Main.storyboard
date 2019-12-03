@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ctD-c6-fNE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="d5c-of-vll">
+            <objects>
+                <navigationController id="ctD-c6-fNE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Tf-7j-7ei">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Mfb-gv-R5Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nA-ys-kFz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-738" y="138"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -15,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zgy-wV-OM2">
-                                <rect key="frame" x="141.5" y="7" width="131" height="31"/>
+                                <rect key="frame" x="141.5" y="90" width="131" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="TL8-Mp-16z"/>
                                 </constraints>
@@ -25,7 +41,7 @@
                                 </segments>
                             </segmentedControl>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOf-3C-1No">
-                                <rect key="frame" x="0.0" y="39" width="414" height="857"/>
+                                <rect key="frame" x="0.0" y="122" width="414" height="774"/>
                                 <connections>
                                     <segue destination="O5D-XO-ylu" kind="embed" id="jF4-7r-wDc"/>
                                 </connections>
@@ -33,7 +49,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="zgy-wV-OM2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="7" id="3s4-o2-5Ds"/>
+                            <constraint firstItem="zgy-wV-OM2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="90" id="3s4-o2-5Ds"/>
                             <constraint firstItem="UOf-3C-1No" firstAttribute="top" secondItem="zgy-wV-OM2" secondAttribute="bottom" constant="2" id="VB0-zg-HnD"/>
                             <constraint firstAttribute="bottom" secondItem="UOf-3C-1No" secondAttribute="bottom" id="Y6K-zv-GKR"/>
                             <constraint firstItem="zgy-wV-OM2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eDV-aP-zbx"/>
@@ -41,6 +57,7 @@
                             <constraint firstItem="UOf-3C-1No" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vWF-kS-S1g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Qyc-Rx-y83"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
