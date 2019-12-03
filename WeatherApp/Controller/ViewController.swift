@@ -16,13 +16,26 @@ class ViewController: KFViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         cities = UserData.shared.cities
+        checkCities()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let _ = UserData.shared.cities
+    }
+    
+    func presentMapVC() {
+        if let mapVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "map") as? MapViewController {
+            mapVC.modalPresentationStyle = .fullScreen
+            present(mapVC, animated: true, completion: nil)
+        }
     }
     
     func checkCities() {
         if cities.count > 0 {
             
         } else {
-            
+            presentMapVC()
         }
     }
 
