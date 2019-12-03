@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zgy-wV-OM2">
+                                <rect key="frame" x="141.5" y="7" width="131" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TL8-Mp-16z"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOf-3C-1No">
+                                <rect key="frame" x="0.0" y="39" width="414" height="857"/>
+                                <connections>
+                                    <segue destination="O5D-XO-ylu" kind="embed" id="jF4-7r-wDc"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="zgy-wV-OM2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="7" id="3s4-o2-5Ds"/>
+                            <constraint firstItem="UOf-3C-1No" firstAttribute="top" secondItem="zgy-wV-OM2" secondAttribute="bottom" constant="2" id="VB0-zg-HnD"/>
+                            <constraint firstAttribute="bottom" secondItem="UOf-3C-1No" secondAttribute="bottom" id="Y6K-zv-GKR"/>
+                            <constraint firstItem="zgy-wV-OM2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eDV-aP-zbx"/>
+                            <constraint firstAttribute="trailing" secondItem="UOf-3C-1No" secondAttribute="trailing" id="eqC-pl-nfz"/>
+                            <constraint firstItem="UOf-3C-1No" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vWF-kS-S1g"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LaO-Iq-XRo">
+            <objects>
+                <viewController id="q0m-eP-nCs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GM9-H7-iuA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="HoD-yj-EwI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r1s-AI-6al">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Z8X-Se-4oT"/>
+                                    <constraint firstAttribute="width" constant="40" id="ZVp-0X-4Pk"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="HoD-yj-EwI" firstAttribute="top" secondItem="GM9-H7-iuA" secondAttribute="top" id="5M8-zj-VVi"/>
+                            <constraint firstAttribute="trailing" secondItem="HoD-yj-EwI" secondAttribute="trailing" id="5gV-kw-36j"/>
+                            <constraint firstItem="r1s-AI-6al" firstAttribute="centerY" secondItem="GM9-H7-iuA" secondAttribute="centerY" id="Ab3-UE-O2z"/>
+                            <constraint firstItem="r1s-AI-6al" firstAttribute="centerX" secondItem="GM9-H7-iuA" secondAttribute="centerX" id="fhA-t9-g1T"/>
+                            <constraint firstAttribute="bottom" secondItem="HoD-yj-EwI" secondAttribute="bottom" id="jcz-Pt-khB"/>
+                            <constraint firstItem="HoD-yj-EwI" firstAttribute="leading" secondItem="GM9-H7-iuA" secondAttribute="leading" id="unf-2K-Kyf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yKD-IB-TyD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1774" y="151"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="3SS-k2-vj7">
+            <objects>
+                <viewController id="irK-hQ-ifd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2W8-F9-Vuc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ukr-Yk-vLY">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jZO-h1-xpd">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Ukr-Yk-vLY" firstAttribute="top" secondItem="2W8-F9-Vuc" secondAttribute="top" id="d7r-by-22e"/>
+                            <constraint firstAttribute="bottom" secondItem="Ukr-Yk-vLY" secondAttribute="bottom" id="f8M-5q-dBg"/>
+                            <constraint firstAttribute="trailing" secondItem="Ukr-Yk-vLY" secondAttribute="trailing" id="jaI-MP-AJI"/>
+                            <constraint firstItem="Ukr-Yk-vLY" firstAttribute="leading" secondItem="2W8-F9-Vuc" secondAttribute="leading" id="uqL-bS-wLl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ToG-rX-FAm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="968" y="818"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="xFB-d4-xK9">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="O5D-XO-ylu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hET-ux-nhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="970" y="138"/>
+        </scene>
+    </scenes>
+</document>
