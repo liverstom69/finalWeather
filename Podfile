@@ -7,6 +7,7 @@ target 'WeatherApp' do
   
   
   pod 'AFNetworking', '~> 3.0'
+  pod 'SVProgressHUD'
   pod 'SnapKit'
   
   # Pods for WeatherApp
