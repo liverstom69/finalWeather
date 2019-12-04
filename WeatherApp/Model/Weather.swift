@@ -11,11 +11,13 @@ import Foundation
 struct Weather: Codable {
     let time: Int?
     let icon: String?
+    let temperature: Double?
     let windSpeed: Double?
     let humidity: Float?
     let pressure: Double?
     let cloudCover: Float?
     let uvIndex: Int?
+    let defaultValue = "-"
     
     lazy var iconName: String = {
         guard let icon = self.icon else {
@@ -35,8 +37,19 @@ struct Weather: Codable {
         }
     }()
     
+    lazy var dateString: String = {
+        guard let time = self.time else {
+            return self.defaultValue
+        }
+        let date = Date(timeIntervalSince1970: TimeInterval(time))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE d"
+        return dateFormatter.string(from: date).uppercased()
+    }()
+    
     private enum CodingKeys: String, CodingKey {
         case time
+        case temperature
         case icon
         case windSpeed
         case humidity
@@ -48,6 +61,7 @@ struct Weather: Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(time, forKey: .time)
+        try container.encode(temperature, forKey: .temperature)
         try container.encode(icon, forKey: .icon)
         try container.encode(windSpeed, forKey: .windSpeed)
         try container.encode(humidity, forKey: .humidity)

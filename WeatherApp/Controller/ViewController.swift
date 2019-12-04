@@ -11,8 +11,7 @@ import UIKit
 class ViewController: KFViewController {
 
     var cities: [Location]!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
-    var pagerVC: PageViewController?
+    var forecastVC: ForecastTableViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +22,6 @@ class ViewController: KFViewController {
         // Navigation Controller
         title = "Météo"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentMapVC))
-        
-        // Segmented control
-        segmentedControl.setTitle("Aujourd'hui", forSegmentAt: 0)
-        segmentedControl.setTitle("Prévision", forSegmentAt: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,19 +32,20 @@ class ViewController: KFViewController {
             WeatherService.shared.getForecasts(for: city.latitude, and: city.longitude) { (result, gotError) in
                 if gotError {
                     BasicAppleFunction.displaySimpleAlertController(title: "Impossible de récupérer les données", message: nil, vc: self, handler: nil)
-                    self.pagerVC?.weathers = UserData.shared.weathers
+                    self.forecastVC?.forecasts = UserData.shared.weathers
                 } else if let weathers = result {
                     UserData.shared.set(weathers: weathers)
-                    self.pagerVC?.weathers = weathers
+                    self.forecastVC?.forecasts = weathers
                 }
+                self.forecastVC?.tableView.reloadData()
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "pager",
-            let pagerVC = segue.destination as? PageViewController {
-            self.pagerVC = pagerVC
+        if segue.identifier == "forecast",
+            let forecastVC = segue.destination as? ForecastTableViewController {
+            self.forecastVC = forecastVC
         }
     }
     
@@ -65,7 +61,6 @@ class ViewController: KFViewController {
             presentMapVC()
         }
     }
-
 
 }
 

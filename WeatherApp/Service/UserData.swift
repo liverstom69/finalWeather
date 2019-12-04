@@ -36,9 +36,7 @@ class UserData {
     }
 
     func add(city: Location) {
-        var cities = self.cities
-        cities.append(city)
-        let cityData = NSKeyedArchiver.archivedData(withRootObject: cities)
+        let cityData = NSKeyedArchiver.archivedData(withRootObject: [city])
         UserDefaults.standard.set(cityData, forKey: citiesKey)
         UserDefaults.standard.synchronize()
     }
