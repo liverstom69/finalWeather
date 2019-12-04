@@ -44,7 +44,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UOf-3C-1No">
                                 <rect key="frame" x="0.0" y="122" width="414" height="774"/>
                                 <connections>
-                                    <segue destination="O5D-XO-ylu" kind="embed" id="jF4-7r-wDc"/>
+                                    <segue destination="O5D-XO-ylu" kind="embed" identifier="pager" id="jF4-7r-wDc"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -60,6 +60,9 @@
                         <viewLayoutGuide key="safeArea" id="FMG-eJ-kBT"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qyc-Rx-y83"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="zgy-wV-OM2" id="O4Z-eP-2Cm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -164,7 +167,7 @@
         <!--Page View Controller-->
         <scene sceneID="xFB-d4-xK9">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="O5D-XO-ylu" sceneMemberID="viewController"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="O5D-XO-ylu" customClass="PageViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hET-ux-nhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="970" y="138"/>

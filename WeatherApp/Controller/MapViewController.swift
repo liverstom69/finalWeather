@@ -31,11 +31,11 @@ class MapViewController: KFViewController {
             if error == nil,
                 let name = placemarks?.first?.locality {
                 cityName = name
+                city.name = cityName
+                city.latitude = self.mapView.centerCoordinate.latitude
+                city.longitude = self.mapView.centerCoordinate.longitude
+                UserData.shared.add(city: city)
             }
-            city.name = cityName
-            city.latitude = self.mapView.centerCoordinate.latitude
-            city.longitude = self.mapView.centerCoordinate.longitude
-            UserData.shared.add(city: city)
             DispatchQueue.main.async {
                 self.dismiss(animated: true, completion: nil)
             }

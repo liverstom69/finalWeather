@@ -27,5 +27,14 @@ struct Weather: Codable {
         case uvIndex
     }
     
-    func encode(to encoder: Encoder) throws {}
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(time, forKey: .time)
+        try container.encode(icon, forKey: .icon)
+        try container.encode(windSpeed, forKey: .windSpeed)
+        try container.encode(humidity, forKey: .humidity)
+        try container.encode(pressure, forKey: .pressure)
+        try container.encode(cloudCover, forKey: .cloudCover)
+        try container.encode(uvIndex, forKey: .uvIndex)
+    }
 }

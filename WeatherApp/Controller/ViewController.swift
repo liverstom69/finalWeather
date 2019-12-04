@@ -11,27 +11,45 @@ import UIKit
 class ViewController: KFViewController {
 
     var cities: [Location]!
-    
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    var pagerVC: PageViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         cities = UserData.shared.cities
         checkCities()
+        
+        // Navigation Controller
         title = "Météo"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentMapVC))
+        
+        // Segmented control
+        segmentedControl.setTitle("Aujourd'hui", forSegmentAt: 0)
+        segmentedControl.setTitle("Prévision", forSegmentAt: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // Take the last city
         if let city = UserData.shared.cities.last {
-            WeatherService.shared.getForecasts(for: city.latitude, and: city.longitude) { (weather, gotError) in
+            title = city.name
+            WeatherService.shared.getForecasts(for: city.latitude, and: city.longitude) { (result, gotError) in
                 if gotError {
-                    let _ = weather
-                } else {
-                    let _ = weather
+                    BasicAppleFunction.displaySimpleAlertController(title: "Impossible de récupérer les données", message: nil, vc: self, handler: nil)
+                    self.pagerVC?.weathers = UserData.shared.weathers
+                } else if let weathers = result {
+                    UserData.shared.set(weathers: weathers)
+                    self.pagerVC?.weathers = weathers
                 }
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pager",
+            let pagerVC = segue.destination as? PageViewController {
+            self.pagerVC = pagerVC
         }
     }
     
