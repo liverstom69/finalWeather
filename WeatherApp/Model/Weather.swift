@@ -17,6 +17,24 @@ struct Weather: Codable {
     let cloudCover: Float?
     let uvIndex: Int?
     
+    lazy var iconName: String = {
+        guard let icon = self.icon else {
+            return "picto_100"
+        }
+        switch icon {
+        case "clear-day":
+            return "picto_101"
+        case "rain":
+            return "picto_107"
+        case "snow":
+            return "picto_111"
+        case "fog":
+            return "picto_114"
+        default:
+            return "picto_100"
+        }
+    }()
+    
     private enum CodingKeys: String, CodingKey {
         case time
         case icon
