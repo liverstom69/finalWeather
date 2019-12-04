@@ -13,6 +13,7 @@ class KFViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .light
+        navigationController?.navigationBar.tintColor = .white
     }
     
 }

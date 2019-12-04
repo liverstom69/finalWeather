@@ -17,6 +17,8 @@ class ViewController: KFViewController {
         // Do any additional setup after loading the view.
         cities = UserData.shared.cities
         checkCities()
+        title = "Météo"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentMapVC))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +35,7 @@ class ViewController: KFViewController {
         }
     }
     
-    func presentMapVC() {
+    @objc func presentMapVC() {
         if let mapVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "map") as? MapViewController {
             mapVC.modalPresentationStyle = .fullScreen
             present(mapVC, animated: true, completion: nil)
@@ -41,9 +43,7 @@ class ViewController: KFViewController {
     }
     
     func checkCities() {
-        if cities.count > 0 {
-            
-        } else {
+        if cities.count == 0 {
             presentMapVC()
         }
     }
